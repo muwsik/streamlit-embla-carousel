@@ -1,0 +1,7 @@
+[project]
+name = "streamlit-image-overlay"
+version = "1.1.8"
+
+[[tool.streamlit.component.components]]
+name = "streamlit_image_overlay"
+asset_dir = "frontend/build"
