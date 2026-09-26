@@ -36,7 +36,7 @@ def streamlit_image_gallery(
     return _component(
         key = key,
         data = {
-            "help": help
+            "images": data
         },
         default = None
     )

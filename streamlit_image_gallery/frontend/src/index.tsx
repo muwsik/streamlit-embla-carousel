@@ -5,21 +5,18 @@ import {
 import { StrictMode } from "react";
 import { createRoot, Root } from "react-dom/client";
 
-import type { OverlayData, OverlayState } from "./types"
-import ImageOverlay from "./imageOverlay";
+import type { GalleryData, GalleryState, } from "./types"
+import ImageGallery from "./imageGallery";
 
 // Handle the possibility of multiple instances of the component to keep track
 // of the React roots for each component instance.
-const reactRoots: WeakMap<FrontendRendererArgs["parentElement"], Root> =
-  new WeakMap();
+const reactRoots: WeakMap<FrontendRendererArgs["parentElement"], Root> = new WeakMap();
 
 const MyComponentRoot: FrontendRenderer<
-    OverlayState,
-    OverlayData
+    GalleryState,
+    GalleryData
 > = (args) => {
     const { data, parentElement, setStateValue, setTriggerValue } = args;
-
-    console.log(data);
 
     // Get the react-root div from the parentElement that we defined in our
     // `st.components.v2.component` call in Python.
@@ -47,7 +44,8 @@ const MyComponentRoot: FrontendRenderer<
     reactRoot.render(
         <StrictMode>
             <ImageGallery
-                ///
+                images = {data.images}
+                setStateValue = {setStateValue}
             />
         </StrictMode>,
     );
