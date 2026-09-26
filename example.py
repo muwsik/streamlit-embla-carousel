@@ -10,40 +10,66 @@ from streamlit_image_gallery import streamlit_image_gallery as gallery
 st.set_page_config(page_title = "Test gallery", layout = "wide")
 
 images = [
-
     {
         "id": "example_1",
-        "title": "Fine structures",
-        "description": "Small bacterial structures",
-        "image": (
-            "https://images.unsplash.com/"
-            "photo-1535378917042-10a22c95931a"
-            "?auto=format&fit=crop&w=800&q=80"
-        ),
+        "title": "Example 1",
+        "image": "https://picsum.photos/id/10/800/600",
+        "description": "**Описание примера**"
     },
-
     {
         "id": "example_2",
-        "title": "Dense biofilm",
-        "description": "Dense bacterial structures",
-        "image": (
-            "https://images.unsplash.com/"
-            "photo-1532187863486-abf9dbad1b69"
-            "?auto=format&fit=crop&w=800&q=80"
-        ),
+        "title": "Example 2",
+        "image": "https://picsum.photos/id/20/800/600",
+        "description": "Magnification: **100k**"
     },
-
     {
         "id": "example_3",
-        "title": "Large aggregates",
-        "description": "Large bacterial aggregates",
-        "image": (
-            "https://images.unsplash.com/"
-            "photo-1559757175-0eb30cd8c063"
-            "?auto=format&fit=crop&w=800&q=80"
-        ),
+        "title": "Example 3",
+        "image": "https://picsum.photos/id/30/800/600",
+        "description": "[Open dataset](https://example.com)"
     },
-
+    {
+        "id": "example_4",
+        "title": "Example 4",
+        "image": "https://picsum.photos/id/40/800/600",
+        "description": "Описание примера"
+    },
+    {
+        "id": "example_5",
+        "title": "Example 5",
+        "image": "https://picsum.photos/id/50/800/600",
+        "description": "Описание примера"
+    },
+    {
+        "id": "example_6",
+        "title": "Example 6",
+        "image": "https://picsum.photos/id/60/800/600",
+        "description": "Описание примера"
+    },
+    {
+        "id": "example_7",
+        "title": "Example 7",
+        "image": "https://picsum.photos/id/70/800/600",
+        "description": "Описание примера"
+    },
+    {
+        "id": "example_8",
+        "title": "Example 8",
+        "image": "https://picsum.photos/id/80/800/600",
+        "description": "Описание примера"
+    },
+    {
+        "id": "example_9",
+        "title": "Example 9",
+        "image": "https://picsum.photos/id/90/800/600",
+        "description": "Описание примера"
+    },
+    {
+        "id": "example_10",
+        "title": "Example 10",
+        "image": "https://picsum.photos/id/100/800/600",
+        "description": "Описание примера"
+    },
 ]
 
 

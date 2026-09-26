@@ -1,65 +1,52 @@
+import { StrictMode } from 'react'
+import { createRoot, Root } from 'react-dom/client'
 import {
   FrontendRenderer,
-  FrontendRendererArgs,
-} from "@streamlit/component-v2-lib";
-import { StrictMode } from "react";
-import { createRoot, Root } from "react-dom/client";
+  FrontendRendererArgs
+} from '@streamlit/component-v2-lib'
 
-import type { GalleryData, GalleryState, } from "./types"
-import ImageGallery from "./imageGallery";
+import EmblaCarousel from './EmblaCarousel'
+import type { GalleryData, GalleryState } from './types'
 
-// Handle the possibility of multiple instances of the component to keep track
-// of the React roots for each component instance.
-const reactRoots: WeakMap<FrontendRendererArgs["parentElement"], Root> = new WeakMap();
+import './embla.css'
 
-const MyComponentRoot: FrontendRenderer<
-    GalleryState,
-    GalleryData
-> = (args) => {
-    const { data, parentElement, setStateValue, setTriggerValue } = args;
+const reactRoots: WeakMap<FrontendRendererArgs['parentElement'], Root> = new WeakMap()
 
-    // Get the react-root div from the parentElement that we defined in our
-    // `st.components.v2.component` call in Python.
-    const rootElement = parentElement.querySelector(".react-root");
+const MyComponentRoot: FrontendRenderer<GalleryState, GalleryData> = (args) => {
+  const { data, parentElement, setStateValue } = args
 
-    if (!rootElement) {
-        throw new Error("Unexpected: React root element not found");
+  const rootElement = parentElement.querySelector('.react-root')
+
+  if (!rootElement) {
+    throw new Error('Unexpected: React root element not found')
+  }
+
+  let reactRoot = reactRoots.get(parentElement)
+
+  if (!reactRoot) {
+    reactRoot = createRoot(rootElement)
+    reactRoots.set(parentElement, reactRoot)
+  }
+
+  reactRoot.render(
+    <StrictMode>
+      <div className="theme-light">
+        <EmblaCarousel
+          images={data.images}
+          onSelect={(id) => setStateValue('selected_id', id)}
+        />
+      </div>
+    </StrictMode>
+  )
+
+  return () => {
+    const reactRoot = reactRoots.get(parentElement)
+
+    if (reactRoot) {
+      reactRoot.unmount()
+      reactRoots.delete(parentElement)
     }
+  }
+}
 
-    // Check to see if we already have a React root for this component instance.
-    let reactRoot = reactRoots.get(parentElement);
-        if (!reactRoot) {
-        // If we don't, create a new root for the React application using the React
-        // DOM API.
-        // @see https://react.dev/reference/react-dom/client/createRoot
-        reactRoot = createRoot(rootElement);
-        reactRoots.set(parentElement, reactRoot);
-    }
-
-    // Here we are accessing the data passed from Streamlit on the Python side.
-    const {
-        ///
-    } = data;
-
-    reactRoot.render(
-        <StrictMode>
-            <ImageGallery
-                images = {data.images}
-                setStateValue = {setStateValue}
-            />
-        </StrictMode>,
-    );
-
-    // Return a function to cleanup the React application in the Streamlit
-    // component lifecycle.
-    return () => {
-        const reactRoot = reactRoots.get(parentElement);
-
-        if (reactRoot) {
-            reactRoot.unmount();
-            reactRoots.delete(parentElement);
-        }
-    };
-};
-
-export default MyComponentRoot;
+export default MyComponentRoot

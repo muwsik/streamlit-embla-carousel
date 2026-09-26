@@ -1,0 +1,226 @@
+.embla,
+.embla *,
+.embla *::before,
+.embla *::after {
+  box-sizing: border-box;
+}
+
+.embla {
+  max-width: none;
+  margin: auto;
+  color: var(--st-text-color);
+  font-family: var(--st-font);
+  --slide-height: 25rem;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+  --slide-spacing-sm: 1rem;
+  --slide-size-sm: 50%;
+  --slide-spacing-lg: 1rem;
+  --slide-size-lg: calc(100% / 3);
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+@media (min-width: 750px) {
+  .embla__container {
+    margin-left: calc(var(--slide-spacing-sm) * -1);
+  }
+}
+
+@media (min-width: 1200px) {
+  .embla__container {
+    margin-left: calc(var(--slide-spacing-lg) * -1);
+  }
+}
+
+.embla__slide {
+  min-width: 0;
+  flex: 0 0 var(--slide-size);
+  padding-left: var(--slide-spacing);
+}
+
+@media (min-width: 750px) {
+  .embla__slide {
+    flex: 0 0 var(--slide-size-sm);
+    padding-left: var(--slide-spacing-sm);
+  }
+}
+
+@media (min-width: 1200px) {
+  .embla__slide {
+    flex: 0 0 var(--slide-size-lg);
+    padding-left: var(--slide-spacing-lg);
+  }
+}
+
+.embla__controls {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.embla__buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.embla__button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  border: 0.2rem solid var(--st-text-color);
+  width: 3.6rem;
+  height: 3.6rem;
+  z-index: 1;
+  border-radius: 50%;
+  color: var(--st-text-color);
+  align-items: center;
+  justify-content: center;
+  transform: rotate(0deg);
+}
+
+.embla__button--disabled {
+  color: var(--st-text-color);
+  border-color: var(--st-text-color);
+  opacity: 0.45;
+}
+
+.embla__button__svg {
+  width: 35%;
+  height: 35%;
+}
+
+.embla__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
+}
+
+.embla__dot {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+
+.embla__dot:before,
+.embla__dot:after {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  content: '';
+}
+
+.embla__dot:before {
+  border: 0.2rem solid var(--st-text-color);
+  opacity: 0.55;
+}
+
+.embla__dot:after {
+  border: 0.2rem solid var(--st-text-color);
+  opacity: 0;
+}
+
+.embla__dot--selected:after {
+  opacity: 1;
+}
+
+.embla__slide__image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  border: 0.2rem solid var(--st-text-color);
+  border-radius: 0.9rem;
+  cursor: pointer;
+}
+
+.embla__slide__image--selected {  
+  border: 0.2rem dashed var(--st-green-color);
+}
+
+.embla__slide__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.embla__slide__title,
+.embla__slide__description {
+  position: absolute;
+  left: 0;
+  max-width: 100%;
+  padding: 0.25rem 0.75rem;
+  background: var(--st-background-color);
+  color: var(--st-text-color);
+  border: 1px solid var(--st-text-color);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.embla__slide__title {
+  top: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.embla__slide__description {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  pointer-events: auto;
+}
+
+.embla__slide__description p {
+  margin: 0 0 0.25rem 0;
+}
+
+.embla__slide__image:hover .embla__slide__title,
+.embla__slide__image:hover .embla__slide__description {
+  opacity: 1;
+}
