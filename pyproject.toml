@@ -3,9 +3,9 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "streamlit-image-gallery"
+name = "streamlit-embla-carousel"
 version = "0.9.0"
-description = "Interactive image gallery component for Streamlit"
+description = "Interactive image gallery component for Streamlit based on Embla lib"
 readme = "README.md"
 requires-python = ">=3.12"
 license = { file = "LICENSE" }
