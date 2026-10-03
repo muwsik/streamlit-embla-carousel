@@ -1,0 +1,7 @@
+[project]
+name = "streamlit-embla-carousel"
+version = "0.9.3"
+
+[[tool.streamlit.component.components]]
+name = "streamlit_embla_carousel"
+asset_dir = "frontend/build"

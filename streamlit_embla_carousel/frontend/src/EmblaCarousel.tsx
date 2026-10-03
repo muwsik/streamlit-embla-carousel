@@ -40,15 +40,14 @@ const EmblaCarousel = (props: PropType) => {
           {images.map((item) => (
             <div className="embla__slide" key={item.id}>
               <div
-                className={'embla__slide__image'.concat(
-                  selectedId === item.id ? ' embla__slide__image--selected' : ''
-                )}
+                className= "embla__slide__image"
                 onClick={() => {
                   setSelectedId(item.id)
                   onSelect?.(item.id)
                 }}
               >                
-                <img src={item.image} alt={item.title} />   
+                <img src={item.image} alt={item.title} />                 
+
                 <div className="embla__slide__title">
                   {item.title}
                 </div>
@@ -59,6 +58,12 @@ const EmblaCarousel = (props: PropType) => {
                     onClick={(event) => event.stopPropagation()}
                   >
                     <ReactMarkdown>{item.description}</ReactMarkdown>
+                  </div>
+                )}
+
+                {selectedId === item.id && (
+                  <div className="embla__slide__selected-indicator">
+                    ✓
                   </div>
                 )}
               </div>

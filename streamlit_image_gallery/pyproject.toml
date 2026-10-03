@@ -1,7 +1,0 @@
-[project]
-name = "streamlit-image-gallery"
-version = "0.9.0"
-
-[[tool.streamlit.component.components]]
-name = "streamlit_image_gallery"
-asset_dir = "frontend/build"

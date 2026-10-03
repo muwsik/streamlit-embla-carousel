@@ -1,6 +1,6 @@
 .vs/
-streamlit_image_gallery/frontend/node_modules/
-streamlit_image_gallery/frontend/build/
+streamlit_embla_carousel/frontend/node_modules/
+streamlit_embla_carousel/frontend/build/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

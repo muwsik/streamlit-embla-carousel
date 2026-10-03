@@ -30,14 +30,14 @@ def validate_image(image):
 import streamlit as st
 
 _component = st.components.v2.component(
-    "streamlit-image-gallery.streamlit_image_gallery",
+    "streamlit-embla-carousel.streamlit_embla_carousel",
     js = "index-*.js",
     css = "index-*.css",
     html = '<div class="react-root"></div>',
 )
 
 
-def streamlit_image_gallery(images, key = "gallery"):
+def streamlit_embla_carousel(images, key = "carousel"):
     processed_images = []
     for item in images:
         image = validate_image(item["image"])

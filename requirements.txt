@@ -1,3 +1,2 @@
 numpy
 streamlit==1.55.0
-pillow

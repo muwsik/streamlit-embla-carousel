@@ -173,8 +173,28 @@
   cursor: pointer;
 }
 
-.embla__slide__image--selected {  
-  border: 0.2rem dashed var(--st-green-color);
+.embla__slide__selected-indicator {
+  z-index: 2;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%; 
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+
+  pointer-events: none;
 }
 
 .embla__slide__image img {

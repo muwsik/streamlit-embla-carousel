@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "streamlit-embla-carousel"
-version = "0.9.0"
-description = "Interactive image gallery component for Streamlit based on Embla lib"
+version = "0.9.3"
+description = "Interactive image gallery component for Streamlit based on Embla Carousel"
 readme = "README.md"
 requires-python = ">=3.12"
 license = { file = "LICENSE" }
@@ -20,7 +20,7 @@ classifiers = [
 ]
 
 [project.urls]
-Repository = "https://github.com/Muwsik/streamlit-image-gallery"
+Repository = "https://github.com/Muwsik/streamlit-embla-carousel"
 
 [project.optional-dependencies]
 dev = [
@@ -36,10 +36,10 @@ dev = [
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["streamlit_image_gallery*"]
+include = ["streamlit_embla_carousel*"]
 
 [tool.setuptools.package-data]
-streamlit_image_gallery = [
+streamlit_embla_carousel = [
     "frontend/build/**/*",
     "pyproject.toml"
 ]
