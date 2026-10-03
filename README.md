@@ -12,7 +12,7 @@ The component allows you to display images in a horizontal carousel with titles,
 * Navigation dots
 * Image selection with a visual indicator
 * Titles and descriptions for images
-* Markdown support in descriptions
+* Markdown support in titles and descriptions
 * Responsive layout
 * Built with Streamlit Components v2 and Embla Carousel
 

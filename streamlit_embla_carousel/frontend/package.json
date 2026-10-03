@@ -1,6 +1,6 @@
 {
-  "name": "streamlit_image_gallery",
-  "version": "0.9.0",
+  "name": "streamlit_embla_carousel",
+  "version": "0.9.4",
   "private": true,
   "type": "module",
   "scripts": {

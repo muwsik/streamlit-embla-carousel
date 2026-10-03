@@ -1,15 +1,16 @@
 import streamlit as st
 
-from streamlit_embla_carousel import streamlit_image_gallery as gallery
+from streamlit_embla_carousel import streamlit_embla_carousel as carousel
 
 
 #### MAIN       
-st.set_page_config(page_title = "Test gallery", layout = "wide")
+st.set_page_config(page_title = "Test carousel", layout = "wide")
 
 images = [
     {
         "id": "example_1",
-        "title": "Example 1",
+        "title": ("**Example 1**. "
+            "[source](https://picsum.photos/id/10/800/600)"),
         "image": "https://picsum.photos/id/10/800/600",
         "description": "**Описание примера**"
     },
@@ -70,6 +71,6 @@ images = [
 ]
 
 
-result = gallery(images, key = "examples",)
+result = carousel(images, key = "examples",)
 
 st.write(f"Component state: {result}")
